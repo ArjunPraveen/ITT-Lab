@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <iframe src="pgm1.html" height="150px" width="100%"></iframe>
-    <iframe src="menu.html" height="175px" width="45%"></iframe>
-    <iframe src="content.html" height="175px" width="45%"></iframe>
-    <iframe src="pgm2.html" height="200px" width="100%"></iframe>
-</body>
+
+<html>
+    <head>
+        <title>Frameset2
+
+        </title>
+    </head>
+    <frameset rows='150,*,100'>
+        <frame name='Contact' src='pgm1.html'></frame>
+        
+            <frameset cols='175,175'>
+                   <frame name='menu' src='./menu.html'></frame> 
+                   <frame name='content' src='content.html'></frame> 
+            </frameset>
+        
+        <frame name='frmBottom' src="pgm2.html"></frame>
+         
+    </frameset>
 </html>

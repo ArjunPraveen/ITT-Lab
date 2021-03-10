@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q3</title>
+</head>
+<body>
+    <label for="word">Enter a word</label>
+    <input type="text" id="word">
+    <br><br>
+    <button onclick="extract()">Extract</button>
+    <br><br>
+    <label>StateCode: </label>
+    <p id="state"></p>
+    <br>
+    <label>Number: </label>
+    <p id="number"></p>
+
+
+</body>
+<script>
+    function extract(){
+        var word = document.getElementById("word").value
+        console.log(word.split(")"  , 2))
+        document.getElementById("state").innerHTML =word.split(")")[0].substring(1)
+        document.getElementById("number").innerHTML = word.split(")")[1]
+    }
+</script>
+</html>

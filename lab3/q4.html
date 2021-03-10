@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4</title>
+</head>
+<body>
+    <p id="hello"></p>
+</body>
+
+<script>
+    var hello = document.getElementById("hello")
+    var string = "bathe"
+    var temp;
+    var permutations = []
+    //b ba bat
+    for(let i=0; i<string.length; i++){
+        temp = string[i];
+        for(let j=0; j<string.length; j++){
+            if(j!=i){
+                temp+=string[j]
+                for(let k=0; k<string.length; k++){
+                    if(k!=i && k!=j){
+                        temp+=string[k];
+                        if(!permutations.includes(temp))
+                            permutations.push(temp)
+                    }
+                    temp = temp.substring(0,2)
+                }
+            }
+            temp = temp.substring(0,1)
+        }
+    }
+    console.log(permutations.length)
+
+    hello.innerHTML=permutations.join(" ")
+</script>
+</html>
