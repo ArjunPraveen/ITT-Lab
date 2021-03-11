@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="n1">Input a number</label>
+    <input type="text" id="num">
+    <br>
+    <button onclick="execute()">Execute</button>
+    <p>FIBONACCI SERIES</p>
+    <p id="fibonacci"></p>
+    <br><br><br>
+    <table id="sq">
+        <tr>
+            <th>Number</th>
+            <th>Square</th>
+        </tr>
+    </table>
+</body>
+<script>
+    function execute(){
+        fib = []
+        fib.push(1)
+        fib.push(1)
+        var n = parseInt(document.getElementById("num").value) 
+        console.log(n)
+        if(isNaN(n)){
+            alert("Enter a number")
+            return
+        }
+        for(let i=0; i<n-2; i++){
+            fib.push(fib[i] + fib[i])
+        }
+        var output = fib.join(', ')
+        document.getElementById('fibonacci').innerHTML = output 
+        table = document.getElementById('sq')
+        for(let i=0; i<n; i++){
+            table.innerHTML += `<tr><td> ${i} </td> <td>${i*i}</td></tr>`
+        }
+        setTimeout(function(){
+            alert(`${n} squared = ${n*n}`)
+        }, 1000);
+            
+    }
+</script>
+</html>

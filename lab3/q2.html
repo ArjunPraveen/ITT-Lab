@@ -20,7 +20,12 @@
     function pigLatin(){
         var word = document.getElementById("word").value
         console.log(word)
-        document.getElementById("piglatin").innerHTML = word.substring(1,word.length) + word[0] + 'ay'
+        let arr = word.split(" ")
+        for(let i=0; i<arr.length; i++){
+            arr[i]+="ay"
+        }
+        
+        document.getElementById("piglatin").innerHTML = arr.join(" ")
     }
 </script>
 </html>
