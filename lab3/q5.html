@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Squares and Cubes</h1>
+    <button onclick="execute()">generate</button>
+    <br><br>
+    <table id="sq">
+        <tr>
+            <th>Number</th>
+            <th>Square</th>
+            <th>Cubes</th>
+        </tr>
+    </table>
+</body>
+<script>
+    function execute() {
+        table = document.getElementById('sq')
+        for(let i=0; i<10; i++){
+            table.innerHTML += `<tr><td> ${i} </td> <td>${i*i}</td><td>${i*i*i}</td></tr>`
+        }
+    }
+</script>
+</html>
