@@ -7,17 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="n1">Input a number</label>
-    <input type="text" id="num">
+    <!-- <label for="n1">Input a number</label>
+    <input type="text" id="num"> -->
     <br>
-    <button onclick="execute()">Execute</button>
-    <p>FIBONACCI SERIES</p>
+    <button onclick="execute()">Prompt</button>
+    <p id=fib></p>
     <p id="fibonacci"></p>
     <br><br><br>
     <table id="sq">
         <tr>
-            <th>Number</th>
-            <th>Square</th>
+            <th id="num"></th>
+            <th id="square"></th>
         </tr>
     </table>
 </body>
@@ -26,7 +26,8 @@
         fib = []
         fib.push(1)
         fib.push(1)
-        var n = parseInt(document.getElementById("num").value) 
+        var n = parseInt(prompt("Please enter a number" ))
+        //var n = parseInt(document.getElementById("num").value) 
         console.log(n)
         if(isNaN(n)){
             alert("Enter a number")
@@ -36,7 +37,10 @@
             fib.push(fib[i] + fib[i])
         }
         var output = fib.join(', ')
+        document.getElementById('fib').innerHTML = "FIBONACCI SERIES"
         document.getElementById('fibonacci').innerHTML = output 
+        document.getElementById('num').innerHTML = "Num"
+        document.getElementById('square').innerHTML = "Square"
         table = document.getElementById('sq')
         for(let i=0; i<n; i++){
             table.innerHTML += `<tr><td> ${i} </td> <td>${i*i}</td></tr>`

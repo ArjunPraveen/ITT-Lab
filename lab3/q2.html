@@ -13,7 +13,7 @@
     <button onclick="pigLatin()">Convert to piglatin</button>
     <br><br>
     <p>PigLatin: </p>
-    <p id="piglatin"></p>
+    <textarea id="piglatin"></textarea>
 </body>
 
 <script>
@@ -25,7 +25,7 @@
             arr[i]= arr[i].substring(1,arr[i].length) +arr[i].substring(0,1) + "ay"  
         }
         
-        document.getElementById("piglatin").innerHTML = arr.join(" ")
+        document.getElementById("piglatin").innerHTML += (arr.join(" ") + " ")
     }
 </script>
 </html>

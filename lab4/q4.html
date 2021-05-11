@@ -7,8 +7,60 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="n1">Enter a USN number</label>
-    <input type="text" id="num">
+    <label for="n1">Enter a USN number: </label>
+    <input type="text" id="USN">
     <br>
+    <p id="warning" style="color: orange;"></p>
+    <button id="submit" disabled='true'>Submit</button>
+    <!--Assuming irst character of USN is semester (1-4)-->
 </body>
+<script>
+    var inputText = document.getElementById('USN')
+    var submit = document.getElementById('submit')
+    var warning = document.getElementById('warning')
+    inputText.addEventListener('input', ()=>{
+        warning.style.color = 'orange'
+        submit.setAttribute('disabled','true')
+        if(inputText.value.length !=10){
+            console.log(inputText.value.length)
+            document.getElementById('warning').innerText = "USN number should be 10 digits, no spaces allowed."
+            return
+        }
+        if(!Number.isInteger(parseInt(inputText.value[0]))){
+            document.getElementById('warning').innerText = 'First character has to be an integer!'
+            return
+        }
+        if(parseInt(inputText.value[0])>4 || parseInt(inputText.value[0]) <1){
+            document.getElementById('warning').innerText = 'First digit should lie between 1 and 4!'
+            return
+        }
+        if(!(inputText.value[1]>="A" && inputText.value[1]<="Z") || !(inputText.value[2]>="A" && inputText.value[2]<="Z")){
+            document.getElementById('warning').innerText = 'Second and third character should be uppercase!'
+            return
+        }
+        if(Number(inputText.value.substring(3,5))?false:true){
+            document.getElementById('warning').innerText = 'Fourth and fifth character have to be integers!'
+            return
+        }
+
+        if(!(inputText.value[5]>="A" && inputText.value[5]<="Z") || !(inputText.value[6]>="A" && inputText.value[6]<="Z")){
+            document.getElementById('warning').innerText = 'Sixth and seventh character should be uppercase!'
+            return
+        }
+        if(Number(inputText.value.substring(7,10))?false:true){
+            document.getElementById('warning').innerText = 'Seventh eigth and ninth character have to be integers!'
+            return
+        }
+
+        else{ 
+            warning.style.color = 'green'
+            warning.innerText = 'Looks good!'
+            submit.removeAttribute('disabled')
+            submit.addEventListener('click', ()=>{
+                alert(`You are in Sem ${inputText.value[0]}!`)
+            })
+        }
+
+    })
+</script>
 </html>
